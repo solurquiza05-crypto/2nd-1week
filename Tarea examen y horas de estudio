@@ -1,0 +1,17 @@
+import pandas as pd
+
+# Leer el archivo
+df = pd.read_csv("estudiantes.csv")
+
+# Columnas que se van a analizar
+columnas = ["Tareas", "Examen", "Horas_Estudio"]
+
+for columna in columnas:
+    print("===", columna.upper(), "===")
+    print("Media:", df[columna].mean())
+    print("Mediana:", df[columna].median())
+    print("Moda:", df[columna].mode().tolist())
+    print("Rango:", df[columna].max() - df[columna].min())
+    print("Varianza:", df[columna].var())
+    print("Desviación estándar:", df[columna].std())
+    print()
