@@ -1,0 +1,23 @@
+import pandas as pd
+
+# Load the CSV file
+df = pd.read_csv("estudiantes.csv")
+
+variables = ["Asistencia", "Tareas", "Examen", "Calificacion_Final"]
+
+print("=" * 60)
+print("MEDIDAS DE TENDENCIA CENTRAL")
+print("=" * 60)
+
+for var in variables:
+    media = df[var].mean()
+    mediana = df[var].median()
+    moda = df[var].mode().tolist()
+
+    print(f"\nVariable: {var}")
+    print(f"Media: {media:.2f}")
+    print(f"Mediana: {mediana}")
+    print(f"Moda: {moda}")
+
+
+This one is from the past
