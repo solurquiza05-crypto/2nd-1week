@@ -1,0 +1,35 @@
+import pandas as pd
+
+# Leer el archivo
+df = pd.read_csv("estudiantes.csv")
+
+# TAREA
+print("=== TAREA S===")
+print("Media:", df["Tareas"].mean())
+print("Mediana:", df["Tareas"].median())
+print("Moda:", df["Tareas"].mode().tolist())
+print("Rango:", df["Tareas"].max() - df["Tareas"].min())
+print("Varianza:", df["Tareas"].var())
+print("Desviación estándar:", df["Tareas"].std())
+
+print()
+
+# EXAMEN
+print("=== EXAMEN ===")
+print("Media:", df["Examen"].mean())
+print("Mediana:", df["Examen"].median())
+print("Moda:", df["Examen"].mode().tolist())
+print("Rango:", df["Examen"].max() - df["Examen"].min())
+print("Varianza:", df["Examen"].var())
+print("Desviación estándar:", df["Examen"].std())
+
+print()
+
+# HORAS DE ESTUDIO
+print("=== HORAS DE ESTUDIO ===")
+print("Media:", df["Horas_Estudio"].mean())
+print("Mediana:", df["Horas_Estudio"].median())
+print("Moda:", df["Horas_Estudio"].mode().tolist())
+print("Rango:", df["Horas_Estudio"].max() - df["Horas_Estudio"].min())
+print("Varianza:", df["Horas_Estudio"].var())
+print("Desviación estándar:", df["Horas_Estudio"].std())
