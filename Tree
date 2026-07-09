@@ -1,0 +1,45 @@
+                     INICIO
+                       │
+                       ▼
+          Crear lista de alumnos
+                       │
+                       ▼
+      Recorrer cada alumno (for)
+                       │
+                       ▼
+                    Obtener:
+                    - Nombre
+                    - Asistencia
+                    - Tareas
+                    - Examen
+                       │
+                       ▼
+               ¿Asistencia ≥ 70?
+               │
+         No ───┴──► Reprobado
+              Sí
+               │
+              ▼
+       ¿Tareas ≥ 70?
+              │
+        No ───┴──► Reprobado
+             Sí
+              │
+              ▼
+       ¿Examen ≥ 70?
+              │
+        No ───┴──► Reprobado
+              Sí
+              │
+              ▼
+          Aprobado
+              │
+              ▼
+      Mostrar resultado
+              │
+              ▼
+      ¿Quedan alumnos?
+        │            │
+      Sí             No
+        │             │
+        └────────────► FIN
