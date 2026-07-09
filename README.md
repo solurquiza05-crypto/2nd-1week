@@ -1,2 +1,1 @@
-# 2nd-1week
-Hi
+# Parcial 2
