@@ -1,0 +1,27 @@
+# Lista de alumnos
+alumnos = [
+    ["Ana", 95, 90, 88],
+    ["Juan", 60, 65, 58],
+    ["Sofía", 88, 85, 90],
+    ["Ricardo", 55, 60, 50],
+    ["Luis", 72, 70, 68]
+]
+
+print("=" * 65)
+print(f"{'Alumno':<10}{'Asistencia':<12}{'Tareas':<10}{'Examen':<10}{'Resultado'}")
+print("=" * 65)
+
+# Recorrer la lista
+for alumno in alumnos:
+    nombre = alumno[0]
+    asistencia = alumno[1]
+    tareas = alumno[2]
+    examen = alumno[3]
+
+    # Condición
+    if asistencia >= 70 and tareas >= 70 and examen >= 70:
+        resultado = "Aprobado"
+    else:
+        resultado = "Reprobado"
+
+    print(f"{nombre:<10}{asistencia:<12}{tareas:<10}{examen:<10}{resultado}")
