@@ -1,0 +1,186 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression, LinearRegression
+from sklearn.metrics import accuracy_score
+
+# ===============================
+# LEER ARCHIVO
+# ===============================
+
+df = pd.read_csv("dataset_sucursales_mensual.csv")
+
+# Eliminar espacios en los nombres de las columnas
+df.columns = df.columns.str.strip()
+
+# Rellenar valores vacíos con el promedio
+columnas = [
+    "Gasto_Publicidad",
+    "Clientes_Atendidos",
+    "Satisfaccion_Cliente",
+    "Descuento_Promedio"
+]
+
+for c in columnas:
+    df[c] = pd.to_numeric(df[c], errors="coerce")
+    df[c] = df[c].fillna(df[c].mean())
+
+# ===============================
+# MEDIDAS ESTADÍSTICAS
+# ===============================
+
+print("===== MEDIDAS ESTADÍSTICAS =====")
+
+variables = [
+    "Gasto_Publicidad",
+    "Clientes_Atendidos",
+    "Satisfaccion_Cliente",
+    "Descuento_Promedio",
+    "Ventas_Totales"
+]
+
+for col in variables:
+
+    print("\n==========================")
+    print(col)
+    print("==========================")
+    print("Media:", df[col].mean())
+    print("Mediana:", df[col].median())
+    print("Moda:", df[col].mode().tolist())
+    print("Rango:", df[col].max() - df[col].min())
+    print("Varianza:", df[col].var())
+    print("Desviación estándar:", df[col].std())
+
+# ===============================
+# CORRELACIONES
+# ===============================
+
+print("\n===== CORRELACIONES =====")
+
+print("Publicidad vs Ventas:",
+      df["Gasto_Publicidad"].corr(df["Ventas_Totales"]))
+
+print("Clientes vs Ventas:",
+      df["Clientes_Atendidos"].corr(df["Ventas_Totales"]))
+
+print("Satisfacción vs Ventas:",
+      df["Satisfaccion_Cliente"].corr(df["Ventas_Totales"]))
+
+print("Descuento vs Ventas:",
+      df["Descuento_Promedio"].corr(df["Ventas_Totales"]))
+
+# ===============================
+# ÁRBOL DE DECISIÓN
+# ===============================
+
+X = df[
+[
+"Gasto_Publicidad",
+"Clientes_Atendidos",
+"Satisfaccion_Cliente",
+"Descuento_Promedio"
+]
+]
+
+y = df["Cumplio_Meta"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.30,
+    random_state=42
+)
+
+arbol = DecisionTreeClassifier(random_state=42)
+arbol.fit(X_train, y_train)
+
+pred = arbol.predict(X_test)
+
+print("\nExactitud Árbol:",
+      accuracy_score(y_test, pred))
+
+# ===============================
+# NAIVE BAYES
+# ===============================
+
+nb = GaussianNB()
+
+nb.fit(X_train, y_train)
+
+pred_nb = nb.predict(X_test)
+
+print("Exactitud Naive Bayes:",
+      accuracy_score(y_test, pred_nb))
+
+# ===============================
+# REGRESIÓN LOGÍSTICA
+# ===============================
+
+log = LogisticRegression(max_iter=1000)
+
+log.fit(X_train, y_train)
+
+pred_log = log.predict(X_test)
+
+print("Exactitud Regresión Logística:",
+      accuracy_score(y_test, pred_log))
+
+# ===============================
+# REGRESIÓN LINEAL SIMPLE
+# ===============================
+
+X_simple = df[["Gasto_Publicidad"]]
+
+y_reg = df["Ventas_Totales"]
+
+modelo = LinearRegression()
+
+modelo.fit(X_simple, y_reg)
+
+print("\n===== REGRESIÓN LINEAL SIMPLE =====")
+print("Intercepto:", modelo.intercept_)
+print("Pendiente:", modelo.coef_[0])
+
+# ===============================
+# REGRESIÓN LINEAL MÚLTIPLE
+# ===============================
+
+X_multiple = df[
+[
+"Gasto_Publicidad",
+"Clientes_Atendidos",
+"Satisfaccion_Cliente",
+"Descuento_Promedio"
+]
+]
+
+modelo2 = LinearRegression()
+
+modelo2.fit(X_multiple, y_reg)
+
+print("\n===== REGRESIÓN LINEAL MÚLTIPLE =====")
+
+print("Intercepto:", modelo2.intercept_)
+
+for nombre, coef in zip(X_multiple.columns,
+                        modelo2.coef_):
+    print(nombre, "=", coef)
+
+# ===============================
+# PREDICCIÓN DE VENTAS
+# ===============================
+
+nuevo = pd.DataFrame({
+
+"Gasto_Publicidad":[30000],
+"Clientes_Atendidos":[600],
+"Satisfaccion_Cliente":[4.5],
+"Descuento_Promedio":[10]
+
+})
+
+prediccion = modelo2.predict(nuevo)
+
+print("\nPredicción de Ventas Totales:")
+print(prediccion[0])
