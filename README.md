@@ -16,3 +16,6 @@ https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Media%20mediana%20Ran
 https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Media%20mediana%20Rango%20varianza%20desviacion
 
 https://github.com/solurquiza05-crypto/2nd-1week/blob/main/If%20%E2%89%A570%20abrobado
+
+
+https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Correlaciones
