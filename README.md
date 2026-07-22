@@ -11,3 +11,6 @@ https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Medidas%20de%20tenden
 
 
 https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Media%20mediana%20Rango%20varianza%20desviacion
+
+
+https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Media%20mediana%20Rango%20varianza%20desviacion
