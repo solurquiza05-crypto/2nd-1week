@@ -1,0 +1,38 @@
+#Practica3
+
+import pandas as pd
+ 
+datos = pd.read_csv("estudiantes.csv")
+ 
+correlaciones = datos.corr(numeric_only=True)
+print(correlaciones)
+ 
+relacion = datos["Horas_Estudio"].corr(
+    datos["Calificacion_Final"])
+ 
+print("Correlación horas/calificación:", relacion)
+
+
+
+#Practica3
+import pandas as pd
+
+datos = pd.read_csv("estudiantes.csv")
+
+print("Matrícula:",
+      datos["Matricula"].corr(datos["Calificacion_Final"]))
+
+print("Edad:",
+      datos["Edad"].corr(datos["Calificacion_Final"]))
+
+print("Asistencia:",
+      datos["Asistencia"].corr(datos["Calificacion_Final"]))
+
+print("Tareas:",
+      datos["Tareas"].corr(datos["Calificacion_Final"]))
+
+print("Examen:",
+      datos["Examen"].corr(datos["Calificacion_Final"]))
+
+print("Horas de estudio:",
+      datos["Horas_Estudio"].corr(datos["Calificacion_Final"]))
