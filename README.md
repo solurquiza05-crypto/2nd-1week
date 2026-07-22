@@ -5,3 +5,6 @@ https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Tarea%20examen%20y%20
 
 
 https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Practica%207
+
+
+https://github.com/solurquiza05-crypto/2nd-1week/blob/main/Medidas%20de%20tendencia%20central
