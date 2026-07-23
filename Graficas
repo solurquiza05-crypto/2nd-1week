@@ -1,0 +1,88 @@
+ #matricula
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Matricula"], df["Calificacion_Final"])
+plt.xlabel("Matricula")
+plt.ylabel("Calificación final")
+plt.title("matricula vs Calificación final")
+plt.show()
+#edad
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Edad"], df["Calificacion_Final"])
+plt.xlabel("Edad")
+plt.ylabel("Edad")
+plt.title("Edad vs Calificación final")
+plt.show()
+#Asistencia
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Asistencia"], df["Calificacion_Final"])
+plt.xlabel("Asistencia")
+plt.ylabel("Asistencia")
+plt.title("Asistencia vs Calificación final")
+plt.show()
+#Tareas
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Tareas"], df["Calificacion_Final"])
+plt.xlabel("Tareas")
+plt.ylabel("Tareas")
+plt.title("Tareas vs Calificación final")
+plt.show()
+#Examen
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Examen"], df["Calificacion_Final"])
+plt.xlabel("Examen")
+plt.ylabel("Examen")
+plt.title("Examen vs Calificación final")
+plt.show()
+#Examen - Tareas
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Examen"], df["Tareas"])
+plt.xlabel("Examen")
+plt.ylabel("Examen")
+plt.title("Examen vs Tareas")
+plt.show()
+#Tareas - Asistencia
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Tareas"], df["Asistencia"])
+plt.xlabel("Tareas")
+plt.ylabel("Tareas")
+plt.title("Tareas vs Asistencia")
+plt.show()
+#Matricula - Edad
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+df = pd.read_csv("estudiantes.csv")
+ 
+plt.scatter(df["Matricula"], df["Edad"])
+plt.xlabel("Matricula")
+plt.ylabel("Matricula")
+plt.title("Matricula vs Edad")
+plt.show()
